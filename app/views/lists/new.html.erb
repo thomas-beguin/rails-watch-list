@@ -1,0 +1,9 @@
+<h1>Add a new list</h1>
+
+<div class="container">
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.input :url_img %>
+    <%= f.submit %>
+  <% end %>
+</div>
