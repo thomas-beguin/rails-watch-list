@@ -13,6 +13,8 @@ class ReviewsController < ApplicationController
       @bookmark = Bookmark.new # For the form in the show page
       @review = Review.new     # For the form in the show page
       render 'lists/show', status: :unprocessable_entity
+
+      # redirect_to @list, status: :unprocessable_entity
     end
   end
 
