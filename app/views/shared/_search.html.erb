@@ -1,0 +1,8 @@
+<%= simple_form_for :search, url: path, method: "GET", html: { class: 'd-flex p-1s' } do |f| %>
+  <% if search.present? %>
+    <%= f.input :name, input_html: {value: search[:name]}, class:"form-control me-2", label: false %>
+  <% else %>
+    <%= f.input :name, input_html: {value: ""}, class:"form-control me-2", label: false %>
+  <% end %>
+  <%= f.submit "Search", class: "btn btn-outline-success" %>
+<% end %>

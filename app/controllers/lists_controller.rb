@@ -2,8 +2,13 @@ class ListsController < ApplicationController
   before_action :set_list, only: %i[show destroy]
 
   def index
+    @path = root_path
     @lists = List.all
     @list = List.new
+    @search = params[:search]
+    if @search.present? && params[:controller] == 'lists' && params[:action] == 'index'
+      @lists = List.where('name ILIKE ?', "%#{@search['name']}%")
+    end
   end
 
   def show
