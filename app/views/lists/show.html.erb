@@ -7,6 +7,19 @@
 
 <div class="container mt-3 mb-3">
 
+  <div class="errors position-relative">
+    <% if @bookmark.errors.any? %>
+      <div class="alert alert-warning position-static" role="alert">
+        <h5>Bookmark not saved:</h5>
+        <ul>
+          <% @bookmark.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+
   <div class="row mb-3 ">
     <% @list.bookmarks.each do |bookmark| %>
       <div class="col-4 mb-3">
@@ -36,12 +49,7 @@
       <% end %>
     </div>
     <div class="col-6">
-      <h3>Add your review</h3>
-      <%= simple_form_for [@list, @review] do |f| %>
-        <%= f.input :comment %>
-        <%= f.input :rating %>
-        <%= f.submit %>
-      <% end %>
+      <%= render "review/modal_form", list: @list, review: @review %>
     </div>
   </div>
 </div>
