@@ -12,12 +12,9 @@ class BookmarksController < ApplicationController
       redirect_to list_path(@list)
     else
       # render :new, status: :unprocessable_entity
+
+      @review = Review.new # For the form in the show page
       render 'lists/show', status: :unprocessable_entity
-      # format.turbo_stream do
-      #   render turbo_stream: turbo_stream.replace('modal_form',
-      #                                               partial: "bookmarks/modal_form",
-      #                                               locals: { bookmark: @bookmark })
-      # end
     end
   end
 

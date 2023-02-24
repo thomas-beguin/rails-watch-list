@@ -10,9 +10,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to list_path(@list)
     else
-      @list = List.find(params[:id])
-      @bookmark = Bookmark.new
-      @review = Review.new
+      @bookmark = Bookmark.new # For the form in the show page
+      @review = Review.new     # For the form in the show page
       render 'lists/show', status: :unprocessable_entity
     end
   end
