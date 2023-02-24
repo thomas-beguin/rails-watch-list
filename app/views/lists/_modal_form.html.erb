@@ -9,7 +9,8 @@
       <div class="modal-body">
         <%= simple_form_for list do |f| %>
           <%= f.input :name %>
-          <%= f.input :url_img %>
+          <%#= f.input :url_img %>
+          <%= f.input :photo, as: :file %>
           <%= f.submit %>
         <% end %>
       </div>

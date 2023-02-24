@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   root to: 'lists#index'
 
-  resources :lists, only: %i[show new create destroy] do
-    resources :bookmarks, only: %i[new create]
-    resources :reviews,   only: %i[new create]
+  resources :lists, only: %i[show create destroy] do
+    resources :bookmarks, only: %i[create]
+    resources :reviews,   only: %i[create]
   end
   delete 'bookmarks/:id', to: 'bookmarks#destroy', as: :bookmark
 end
