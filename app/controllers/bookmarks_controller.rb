@@ -11,9 +11,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to list_path(@list)
     else
-      # render :new, status: :unprocessable_entity
       @review = Review.new # For the form in the show page
-      # QUESTION : how to render the modal opened ?
       render 'lists/show', status: :unprocessable_entity
     end
   end

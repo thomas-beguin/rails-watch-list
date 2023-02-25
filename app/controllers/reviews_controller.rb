@@ -12,8 +12,6 @@ class ReviewsController < ApplicationController
     else
       @bookmark = Bookmark.new # For the form in the show page
       render 'lists/show', status: :unprocessable_entity
-      # QUESTION : How to render on the same view in the page ?
-      # redirect_to @list, status: :unprocessable_entity
     end
   end
 
